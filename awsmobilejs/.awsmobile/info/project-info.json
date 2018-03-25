@@ -1,0 +1,23 @@
+{
+	"ProjectName": "amplify-auth-examples",
+	"ProjectPath": "C:\\dev\\amplify-auth-examples",
+	"SourceDir": "src",
+	"DistributionDir": "build",
+	"BuildCommand": "npm.cmd run-script build",
+	"StartCommand": "npm.cmd run-script start",
+	"InitializationTime": "2018-03-24-21-09-26",
+	"LastConfigurationTime": "2018-03-24-21-09-31",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendFormat": "yml",
+	"BackendLastSyncTime": "2018-03-24-21-39-18",
+	"BackendLastBuildTime": "2018-03-24-21-38-55",
+	"BackendLastPushTime": "2018-03-24-21-39-13",
+	"BackendLastPushSuccessful": true,
+	"BackendProjectID": "47f13699-2fd5-11e8-ad8f-5d7d5cd6ce42",
+	"BackendProjectName": "amplify-auth-examples-2018-03-24-21-35-58",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/47f13699-2fd5-11e8-ad8f-5d7d5cd6ce42/build",
+	"BackendProjectCreationTime": "2018-03-25T02:36:11.761Z",
+	"BackendProjectLastUpdatedTime": "2018-03-25T02:39:14.671Z"
+}
