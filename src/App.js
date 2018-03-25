@@ -1,21 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
+
+const HeaderLinks = props => (
+  <ul>
+    <li>
+      <Link to="/home">Home</Link>
+    </li>
+    <li>
+      <Link to="/auth">Create Account/Login</Link>
+    </li>
+    <li>
+      <Link to="/secret">Secret Page</Link>
+    </li>
+    <li>
+      <Link to="/about">
+        About Page (we don't care if you're logged in or not)
+      </Link>
+    </li>
+  </ul>
+);
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Amplify Routes Example</h1>
+
+        <HeaderLinks />
       </div>
     );
   }
 }
 
-export default App;
+const AppWithRouter = () => (
+  <Router>
+    <App />
+  </Router>
+);
+
+export default AppWithRouter;
