@@ -50,14 +50,19 @@ const ProtectedRoute = ({ render: C, props: childProps, ...rest }) => (
   />
 );
 
+const ProppedRoute = ({ render: C, props: childProps, ...rest }) => (
+  <Route {...rest} render={rProps => <C {...rProps} {...childProps} />} />
+);
+
 class AuthComponent extends Component {
   handleStateChange = state => {
     console.log(state);
     if (state === 'signedIn') {
-      // handle state change
+      this.props.onUserSignIn();
     }
   };
   render() {
+    console.log(this.props);
     return (
       <div>
         <Authenticator onStateChange={this.handleStateChange} />
@@ -66,15 +71,20 @@ class AuthComponent extends Component {
   }
 }
 
-const Routes = ({ authState }) => (
+const Routes = ({ childProps }) => (
   <Switch>
     <Route exact path="/" render={() => <div>Home</div>} />
-    <Route exact path="/auth" render={AuthComponent} />
+    <ProppedRoute
+      exact
+      path="/auth"
+      render={AuthComponent}
+      props={childProps}
+    />
     <ProtectedRoute
       exact
       path="/secret"
       render={() => <div>Keep it secret! Keep it safe!</div>}
-      props={authState}
+      props={childProps}
     />
     <Route exact path="/about" render={() => <div>About Content</div>} />
   </Switch>
@@ -87,14 +97,28 @@ class App extends Component {
     }
   };
 
+  handleUserSignIn = () => {
+    this.setState({ authState: { isLoggedIn: true } });
+  };
+
   render() {
+    const childProps = {
+      isLoggedIn: this.state.authState.isLoggedIn,
+      onUserSignIn: this.handleUserSignIn
+    };
+
     return (
       <div className="App">
         <h1>Amplify Routes Example</h1>
 
         <HeaderLinks />
+        <div>
+          {this.state.authState.isLoggedIn
+            ? 'User is Logged In'
+            : 'Not Logged In'}
+        </div>
         <br />
-        <Routes authState={this.state.authState} />
+        <Routes childProps={childProps} />
       </div>
     );
   }
