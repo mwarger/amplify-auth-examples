@@ -197,7 +197,7 @@ const ProtectedRoute = props => (
 
 ```javascript
 const ProtectedRoute = props => (
-  <Route exact={props.render} path={props.path} render={props.render} />
+  <Route exact={props.exact} path={props.path} render={props.render} />
 );
 ```
 
