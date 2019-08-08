@@ -1,3 +1,5 @@
+> Note: This repository is outdated and uses an obsolete version of amplify.  Please see the docs at https://aws-amplify.github.io/docs/js/authentication for the updated CLI.
+
 Get going with `yarn install && yarn start`
 
 # Barebones Authentication with AWS-Amplify
